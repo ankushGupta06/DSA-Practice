@@ -16,7 +16,21 @@ def BFS(n,adj, starting_node):
                 queue.append(neighbor)
     return ans
 
+def DFS(n, adj):
+    visited = [0]*(n+1)
+    ans = []
 
+    def traversal(node, visited, graph):
+        visited[node] = 1
+        ans.append(node)
+        for neighbor in graph[node]:
+            if not visited[neighbor]:
+                traversal(neighbor, visited, graph)
+
+    for i in range(1,n+1):
+        if not visited[i]:
+            traversal(i, visited, adj)
+    return ans
 
 n = 9
 adjacency_list = [
@@ -35,3 +49,7 @@ adjacency_list = [
 print("BFS Traversal starting from node 3:")
 bfs_result = BFS(n, adjacency_list, 3)
 print(bfs_result)  # Output: [3, 2, 4, 1, 5, 6, 7, 8, 9]
+
+print("\nDFS Traversal of the graph:")
+dfs_result = DFS(n, adjacency_list)
+print(dfs_result)
