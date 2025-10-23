@@ -1,5 +1,7 @@
 from collections import deque
 
+
+# Top View using Breadth First Search
 def topView(node):
     if node is None:
         return
@@ -18,6 +20,7 @@ def topView(node):
     for key in sorted(result.keys()):
         print(result[key], end= '')
 
+# Bottom View using Breadth First Search
 def bottomView(node):
     if node is None:
         return
@@ -35,6 +38,7 @@ def bottomView(node):
     for key in sorted(result.keys()):
         print(result[key], end= '') 
 
+# Left View using Breadth First Search
 def leftView(node):
     if node is None:
         return
@@ -51,6 +55,7 @@ def leftView(node):
             if current.right:
                 queue.append(current.right)
 
+# Left View using Depth First Search
 def leftView2(root):
     def DFS(node, level, result):
         if node is None:
@@ -63,6 +68,7 @@ def leftView2(root):
     DFS(root, 0, result)
     return result
 
+# Right View using Breadth First Search
 def rightView(node):
     if node is None:
         return
@@ -79,6 +85,7 @@ def rightView(node):
             if current.right:
                 queue.append(current.right)
 
+# Right View using Depth First Search
 def rightView2(root):
     def DFS(node, level, result):
         if node is None:
